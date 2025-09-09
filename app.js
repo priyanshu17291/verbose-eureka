@@ -168,7 +168,14 @@ class AlphabetGame {
                 break;
         }
     }
-
+    shuffle(array) {
+        let a = array.slice(); // copy, so you don't ruin the original
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+          return a;
+    }
     generateMultipleChoiceNumbers(correctAnswer) {
         const options = new Set();
         options.add(correctAnswer);
@@ -191,8 +198,11 @@ class AlphabetGame {
         }
 
         // const optionsArray = Array.from(options).sort((a, b) => a - b);
+        
+
         const optionsArray = Array.from(options);
-        this.setChoiceButtonsContent(optionsArray);
+        const randomized = shuffle(optionsArray);
+        this.setChoiceButtonsContent(randomized);
     }
 
     generateMultipleChoiceLetters(correctAnswer) {
@@ -218,8 +228,9 @@ class AlphabetGame {
         }
 
         // const optionsArray = Array.from(options).sort();
-        const optionsArray = Array.from(options);
-        this.setChoiceButtonsContent(optionsArray);
+        cconst optionsArray = Array.from(options);
+        const randomized = shuffle(optionsArray);
+        this.setChoiceButtonsContent(randomized);
     }
 
     setChoiceButtonsContent(options) {
