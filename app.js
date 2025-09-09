@@ -190,7 +190,8 @@ class AlphabetGame {
             options.add(random);
         }
 
-        const optionsArray = Array.from(options).sort((a, b) => a - b);
+        // const optionsArray = Array.from(options).sort((a, b) => a - b);
+        const optionsArray = Array.from(options);
         this.setChoiceButtonsContent(optionsArray);
     }
 
@@ -216,7 +217,8 @@ class AlphabetGame {
             options.add(this.numberToLetterMapping[randomPosition]);
         }
 
-        const optionsArray = Array.from(options).sort();
+        // const optionsArray = Array.from(options).sort();
+        const optionsArray = Array.from(options);
         this.setChoiceButtonsContent(optionsArray);
     }
 
