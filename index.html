@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Position Learning Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Alphabet Position Game</h1>
+            <p>Learn the mapping of letters to numbers (A=1, B=2, C=3...Z=26)</p>
+        </header>
+
+        <!-- Main Menu -->
+        <div id="main-menu" class="screen active">
+            <h2>Choose a Game Mode</h2>
+            <div class="mode-buttons">
+                <button class="btn btn--primary mode-btn" data-mode="1">
+                    <h3>Letter → Number</h3>
+                    <p>Multiple Choice</p>
+                </button>
+                <button class="btn btn--primary mode-btn" data-mode="2">
+                    <h3>Number → Letter</h3>
+                    <p>Multiple Choice</p>
+                </button>
+                <button class="btn btn--primary mode-btn" data-mode="3">
+                    <h3>Letter → Number</h3>
+                    <p>Type Answer</p>
+                </button>
+                <button class="btn btn--primary mode-btn" data-mode="4">
+                    <h3>Number → Letter</h3>
+                    <p>Type Answer</p>
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <div class="game-info">
+                    <div class="score-display">
+                        <span class="label">Score:</span>
+                        <span id="current-score">0</span>
+                    </div>
+                    <div class="timer-display">
+                        <span class="label">Time:</span>
+                        <span id="current-time">00:00</span>
+                    </div>
+                </div>
+                <button class="btn btn--outline" id="quit-game">Quit Game</button>
+            </div>
+
+            <div class="question-area">
+                <div class="question-prompt" id="question-prompt">
+                    What is the position of:
+                </div>
+                <div class="question-display" id="question-display">
+                    A
+                </div>
+            </div>
+
+            <!-- Multiple Choice Options -->
+            <div id="multiple-choice" class="answer-section hidden">
+                <div class="choice-buttons">
+                    <button class="btn btn--outline choice-btn" data-answer="1">1</button>
+                    <button class="btn btn--outline choice-btn" data-answer="2">2</button>
+                    <button class="btn btn--outline choice-btn" data-answer="3">3</button>
+                    <button class="btn btn--outline choice-btn" data-answer="4">4</button>
+                    <button class="btn btn--outline choice-btn" data-answer="5">5</button>
+                </div>
+            </div>
+
+            <!-- Type Answer Input -->
+            <div id="type-answer" class="answer-section hidden">
+                <input type="text" id="answer-input" class="form-control answer-input" placeholder="Type your answer..." autocomplete="off">
+                <div class="input-hint">No need to press Enter - just type your answer!</div>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over" class="screen hidden">
+            <div class="game-over-content">
+                <h2>Game Over!</h2>
+                <div class="final-stats">
+                    <div class="stat">
+                        <span class="stat-label">Final Score:</span>
+                        <span class="stat-value" id="final-score">0</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Time Taken:</span>
+                        <span class="stat-value" id="final-time">00:00</span>
+                    </div>
+                </div>
+                
+                <div class="game-over-buttons">
+                    <button class="btn btn--primary" id="play-again">Play Again</button>
+                    <button class="btn btn--outline" id="change-mode">Change Mode</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
